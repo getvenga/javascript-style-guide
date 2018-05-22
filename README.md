@@ -40,8 +40,8 @@ Other Style Guides
   1. [Standard Library](#standard-library)
   1. [Testing](#testing)
   1. [Performance](#performance)
-  1. [License](#license)
   1. [Resources](#resources)
+  1. [License](#license)
 
 ## Types
 
