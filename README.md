@@ -2639,7 +2639,7 @@ Other Style Guides
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({ method: 'POST', url: 'https://getvenga.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 
     // good
     const foo = jsonData
@@ -2652,7 +2652,7 @@ Other Style Guides
     // good
     $.ajax({
       method: 'POST',
-      url: 'https://airbnb.com/',
+      url: 'https://getvenga.com/',
       data: { name: 'John' },
     })
       .done(() => console.log('Congratulations!'))
@@ -3505,7 +3505,7 @@ Other Style Guides
 
 (The MIT License)
 
-Copyright (c) 2012 Airbnb
+Copyright (c) 2012 Venga
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
