@@ -1,0 +1,24 @@
+{
+  "name": "venga-javascript",
+  "version": "1.0.0",
+  "description": "A mostly reasonable approach to JavaScript.",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:getvenga/venga-javascript.git"
+  },
+  "keywords": [
+    "style guide",
+    "lint",
+    "getvenga",
+    "es6",
+    "es2015",
+    "react",
+    "jsx"
+  ],
+  "author": "Venga <devops@getvenga.com> (https://www.getvenga.com)",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/getvenga/venga-javascript/src",
+  "devDependencies": {
+    "markdownlint-cli": "^0.3.1"
+  }
+}
