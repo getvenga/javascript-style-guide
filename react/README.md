@@ -6,21 +6,21 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Table of Contents
 
-  1. [Basic Rules](#markdown-header-basic-rules)
-  1. [Class vs `React.createClass` vs stateless](#markdown-header-class-vs-reactcreateclass-vs-stateless)
-  1. [Mixins](#markdown-header-mixins)
-  1. [Naming](#markdown-header-naming)
-  1. [Declaration](#markdown-header-declaration)
-  1. [Alignment](#markdown-header-alignment)
-  1. [Quotes](#markdown-header-quotes)
-  1. [Spacing](#markdown-header-spacing)
-  1. [Props](#markdown-header-props)
-  1. [Refs](#markdown-header-refs)
-  1. [Parentheses](#markdown-header-parentheses)
-  1. [Tags](#markdown-header-tags)
-  1. [Methods](#markdown-header-methods)
-  1. [Ordering](#markdown-header-ordering)
-  1. [`isMounted`](#markdown-header-ismounted)
+  1. [Basic Rules](#basic-rules)
+  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
+  1. [Mixins](#mixins)
+  1. [Naming](#naming)
+  1. [Declaration](#declaration)
+  1. [Alignment](#alignment)
+  1. [Quotes](#quotes)
+  1. [Spacing](#spacing)
+  1. [Props](#props)
+  1. [Refs](#refs)
+  1. [Parentheses](#parentheses)
+  1. [Tags](#tags)
+  1. [Methods](#methods)
+  1. [Ordering](#ordering)
+  1. [`isMounted`](#ismounted)
 
 ## Basic Rules
 
@@ -625,4 +625,4 @@ This style guide is mostly based on the standards that are currently prevalent i
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
-**[⬆ back to top](#markdown-header-table-of-contents)**
+**[⬆ back to top](#table-of-contents)**
