@@ -41,6 +41,7 @@ Other Style Guides
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
+  1. [Linting](#linting)
   1. [License](#license)
 
 ## Types
@@ -3500,6 +3501,42 @@ Other Style Guides
   - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
   - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
   - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
+
+## Linting
+
+Never disable eslint rules unless you have a good reason. You may see a lot of legacy files with /* eslint-disable some-rule, some-other-rule */ at the top, but legacy files are a special case. Any time you develop a new feature or refactor an existing one, you should abide by the eslint rules.
+
+Never Ever EVER disable eslint globally for a file.
+
+```javascript
+// bad
+/* eslint-disable */
+
+// better
+/* eslint-disable some-rule, some-other-rule */
+
+// best
+// nothing :)
+```
+
+If you do need to disable a rule for a single violation, try to do it as locally as possible.
+
+```javascript
+// bad
+/* eslint-disable no-new */
+
+import Foo from 'foo';
+
+new Foo();
+
+// better
+import Foo from 'foo';
+
+// eslint-disable-next-line no-new
+new Foo();
+```
+
+**[⬆ back to top](#table-of-contents)**
 
 ## License
 
