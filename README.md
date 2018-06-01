@@ -3034,7 +3034,7 @@ Other Style Guides
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - [23.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.  The exception being when we kebab name a directory with an index.js export module.
 
     ```javascript
     // file 1 contents
@@ -3058,15 +3058,17 @@ Other Style Guides
     // bad
     import CheckBox from './check_box'; // PascalCase import/export, snake_case filename
     import forty_two from './forty_two'; // snake_case import/filename, camelCase export
-    import inside_directory from './inside_directory'; // snake_case import, camelCase export
-    import index from './inside_directory/index'; // requiring the index file explicitly
-    import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
+    import inside_directory from './inside-directory'; // snake_case import, camelCase export
+    import index from './inside-directory/index'; // requiring the index file explicitly
+    import insideDirectory from './inside-directory/index'; // requiring the index file explicitly
 
     // good
     import CheckBox from './CheckBox'; // PascalCase export/import/filename
     import fortyTwo from './fortyTwo'; // camelCase export/import/filename
-    import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
+    import insideDirectory from './insideDirectory'; // camelCase export/import
+    // ^ Assumes we're working with insideDirectory.js fle
+    import insideDirectory from './inside-directory/'; // camelCase export/import, kebab directory
+    // ^ Assumes we're working with inside-directory/index.js fle
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
@@ -3165,6 +3167,47 @@ Other Style Guides
       key: 'value'
     };
     ```
+
+  <a name="naming--uppercase"></a>
+  - [23.10](#naming--uppercase) You may optionally uppercase a constant only if it (1) is exported, (2) is a `const` (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.
+
+    > Why? This is an additional tool to assist in situations where the programmer would be unsure if a variable might ever change. UPPERCASE_VARIABLES are letting the programmer know that they can trust the variable (and its properties) not to change.
+    - What about all `const` variables? - This is unnecessary, so uppercasing should not be used for constants within a file. It should be used for exported constants however.
+    - What about exported objects? - Uppercase at the top level of export  (e.g. `EXPORTED_OBJECT.key`) and maintain that all nested properties do not change.
+
+    ```javascript
+    // bad
+    const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
+
+    // bad
+    export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
+
+    // bad
+    export let REASSIGNABLE_VARIABLE = 'do not use let with uppercase variables';
+
+    // ---
+
+    // allowed but does not supply semantic value
+    export const apiKey = 'SOMEKEY';
+
+    // better in most cases
+    export const API_KEY = 'SOMEKEY';
+
+    // ---
+
+    // bad - unnecessarily uppercases key while adding no semantic value
+    export const MAPPING = {
+      KEY: 'value'
+    };
+
+    // good
+    export const MAPPING = {
+      key: 'value'
+    };
+    ```
+
+  <a name="naming--directories"></a>
+  - [23.11](#naming--directories) Always name directories with the kebab style of naming.  ex: `directory-name`
 
 **[⬆ back to top](#table-of-contents)**
 
