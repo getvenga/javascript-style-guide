@@ -22,6 +22,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
   1. [Callbacks](#callbacks)
+  1. [Best Practices](#best-practices)
+  1. [State Management](#state-management)
 
 ## Basic Rules
 
@@ -678,5 +680,89 @@ This style guide is mostly based on the standards that are currently prevalent i
     }
   }
   ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Best Practices
+
+  - [Intro Tutorial](https://reactjs.org/tutorial/tutorial.html)
+    - Some good sound advice that's worth re-reading every so often.
+  - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
+  - [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
+  - [Components and Props](https://reactjs.org/docs/components-and-props.html)
+  - [Prop Drilling](https://kentcdodds.com/blog/prop-drilling)
+
+**[⬆ back to top](#table-of-contents)**
+
+## State Management
+
+In general the options for managing state in Venga React work include:
+
+- [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
+  - To the closest common anscestor if state is shared
+  - Use local state if state isn't shared
+  - Don't be afraid to [drill those props](https://kentcdodds.com/blog/prop-drilling).  It's not always a bad thing.
+
+If this is the approach you are taking create a directory structure like the following:
+
+```bash
+- javascripts
+  - your-feature
+    - YourFeature.js # Should set up router ... if using
+    - yourFeatureHelpers.js
+    - services
+      - YourFeatureService.js # Axios requests, etc
+    - containers
+      - YourFeatureContainer.js # Data coordination component.  See https://reactpatterns.com/#container-component
+    - components
+      - ...
+```
+
+You can have these files generated for you via the following rails generator:
+
+`bin/rails generate react_feature --help`
+
+For example:
+
+`bin/rails generate react_feature "Yet Another Sentiment Beta" path:dashboard/feedback`
+
+- MobX State Tree
+  - [Initial Venga Introduction (GuestCenter PR)](https://bitbucket.org/getvenga/dashboard/pull-requests/509/vcp-2359-guestcenter-write-mobx)
+  - [MobX](https://mobx.js.org/)
+    - [Concepts & Principles](https://mobx.js.org/intro/concepts.html)
+    - [Pitfalls & Best Practices](https://mobx.js.org/best/pitfalls.html)
+  - [MobX React](https://github.com/mobxjs/mobx-react)
+  - [MobX State Tree](https://mobx-state-tree.gitbook.io/docs/)
+    - [Getting Started](https://mobx-state-tree.gitbook.io/docs/getting-started)
+
+So what do "best practices" look like when using MobX State Tree in Venga work? First, figure out if you need a more heavy duty state mgmt solution.  Lifting state up and prop drilling might be enough.  If it isn't:
+
+1. Create a directory structure like the following:
+
+```bash
+- javascripts
+  - your-feature
+    - YourFeature.js # Should set up router ... if using
+    - yourFeatureHelpers.js
+    - services
+      - YourFeatureService.js # Axios requests, etc
+    - containers
+      - YourFeatureContainer.js # Data coordination component.  See https://reactpatterns.com/#container-component
+    - components
+      - ...
+    - stores
+      - RootStore.js # Have multiple stores?  Expose them via a root store
+      - StoreOne.js
+      - StoreTwo.js
+```
+
+You can have these files generated for you via the following rails generator:
+
+`bin/rails generate react_mobx_feature --help`
+
+For example:
+
+`bin/rails generate react_mobx_feature "Yet Another Sentiment Beta" path:dashboard/feedback`
 
 **[⬆ back to top](#table-of-contents)**
